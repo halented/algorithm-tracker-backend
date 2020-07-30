@@ -9,6 +9,8 @@ aprtwenty = [
     "Aidan Muller-Cohn","Thea Harvey-Brown","Andy Del Valle","Colton Kaiser","David Knudson","Don Mallory","Gabe de Sousa","Jeff Simon","Jenni Paquette","John Rusch","Joshua Mclean","Justin Langlinais","Dream/Khanittha Krajangjaem","Klarissa Smith","Maggie Cooper","Mathew Wheatley","Matthew Sedlacek","Sean Dever","Steven Parsons"
 ]
 
+oh_four_twenty_twenty = Cohort.create!(name: "Breakout Room 8", start_date: Date.new(2020, 04, 20))
+
 aprtwenty.each do |student| 
-    Student.create!(name: student, have_gone: false)
+    Student.create!(name: student, have_gone: false, cohort_id: oh_four_twenty_twenty.id)
 end

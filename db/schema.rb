@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2020_07_30_212510) do
   enable_extension "plpgsql"
 
   create_table "cohorts", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -23,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_212510) do
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.boolean "have_gone"
+    t.bigint "cohort_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

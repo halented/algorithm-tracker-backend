@@ -3,8 +3,10 @@ class CreateStudents < ActiveRecord::Migration[6.0]
     create_table :students do |t|
       t.string :name
       t.boolean :have_gone
+      t.bigint :cohort_id
 
       t.timestamps
     end
   end
 end
+
