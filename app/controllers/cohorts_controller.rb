@@ -1,8 +1,13 @@
-class CohortController < ApplicationController
+class CohortsController < ApplicationController
 
     def index
         cohorts = Cohort.all
         render json: cohorts
+    end
+
+    def show
+        cohort = Cohort.find(params[:id])
+        render json: {cohort: CohortSerializer.new(cohort)}
     end
 
     def create
@@ -17,7 +22,7 @@ class CohortController < ApplicationController
     end
 
     def cohort_names
-        names = Cohort.all.map{|coh| "#{coh.name} (#{coh.start_date})"}
+        names = Cohort.all.map{|coh| "#{coh.name.length>0? coh.name : "Name Unspecified" } (#{coh.start_date})"}
         render json: names
     end
 
