@@ -22,7 +22,7 @@ class CohortsController < ApplicationController
     end
 
     def cohort_names
-        names = Cohort.all.map{|coh| "#{coh.name.length>0? coh.name : "Name Unspecified" } (#{coh.start_date})"}
+        names = Cohort.all.map{|coh| {"id"=> coh.id, "name" => "#{coh.name.length>0? coh.name : "Name Unspecified" } (#{coh.start_date})"}}
         render json: names
     end
 
